@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="common.css" />
+        <h:form styleClass="common_font">
+            <p:dataTable id="dtEmp" var="emp" value="#{dataTableBean.listEmployee}"
+                         paginator="true" rows="10" pageLinks="3"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+                         draggableColumns="true" draggableRows="true">
+                <f:facet name="header">
+                    社員一覧
+                    <p:commandButton id="toggler" type="button" value="表示カラム選択" style="float:right"/>
+                    <p:columnToggler datasource="dtEmp" trigger="toggler" />
+                </f:facet>
+                <p:column headerText="名前" footerText="名前" sortBy="#{emp.name}" >
+                    <h:outputText value="#{emp.name}" />
+                </p:column>
+                <p:column headerText="年齢" footerText="年齢" sortBy="#{emp.name}">
+                    <h:outputText value="#{emp.age}" />
+                </p:column>
+                <p:column headerText="所属組織" footerText="所属組織" sortBy="#{emp.name}">
+                    <h:outputText value="#{emp.shozoku}" />
+                </p:column>
+                <p:column headerText="メール" footerText="メール" sortBy="#{emp.name}">
+                    <h:outputText value="#{emp.mail}" />
+                </p:column>
+                <f:facet name="footer">
+                    トータル #{dataTableBean.listEmployee.size()}名
+                </f:facet>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:viewParam name="param1" value="#{toBean.param1}" />
+            <f:viewParam name="param2" value="#{toBean.param2}" />
+            <f:viewAction action="#{toBean.action()}" />
+            <f:event type="preRenderView" listener="#{toBean.preRenderView()}" />
+        </f:metadata>
+        
+        <h:panelGrid columns="2" border="1">
+            <h:outputText value="#{toBean.actionResult}" />
+            <h:outputText value="#{toBean.preRenderViewResult}" />
+        </h:panelGrid>
+    </h:body>
+</html>
+

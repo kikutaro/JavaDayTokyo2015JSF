@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="common.css" />
+        <h:form id="frm" styleClass="common_font">
+            <p:growl sticky="true" />
+            <p:blockUI block="@form" widgetVar="blc" />
+            
+            <p:contentFlow var="neko" value="#{primeFacesBean.items}">
+                <p:graphicImage value="/resources/image/#{neko.img}" styleClass="content"/>
+            </p:contentFlow>
+            
+            <p:contextMenu>
+                <p:menuitem value="右" />
+                <p:menuitem value="左" />
+            </p:contextMenu>
+            
+            <p:separator />
+            
+            <h:outputText id="overlayTxt" value="オーバーレイ" />
+            <p:overlayPanel for="frm:overlayTxt" showEvent="mouseover" showCloseIcon="true">
+                <p:graphicImage value="/resources/image/nekobean_orz_s.png" />
+                <p:barcode value="http://kikutaro777.hatenablog.com/" type="qr" />
+                
+            </p:overlayPanel>
+            
+            <p:separator />
+            
+            <p:inputText required="true" value="#{primeFacesModernBean.input}" />
+            <p:commandButton ajax="false" value="メッセージ" actionListener="#{primeFacesModernBean.submit()}"/>
+            
+            <p:commandButton value="ブロック" action="#{primeFacesModernBean.block()}"
+                             onstart="PF('blc').show()" oncomplete="PF('blc').hide()"/>
+            
+            <p:rating />
+        </h:form>
+    </h:body>
+</html>
+

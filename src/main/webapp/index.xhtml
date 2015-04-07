@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Java Day Tokyo 2015 JSF Session</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel header="Java Day Tokyo 2015 JSFセッションのサンプル">
+                <h:panelGrid columns="1">
+                    <h:commandLink value="JSFとは?スライドのサンプル" action="/jsf/jsf.xhtml" />
+                    <h:commandLink value="HTML5" action="/html5/passthrough.xhtml" />
+                    <h:commandLink value="管理Bean" action="/managedbean/managedbean.xhtml" />
+                    <h:commandLink value="Expression Language" action="/el/el.xhtml" />
+                    <h:commandLink value="Ajax" action="/ajax/ajax.xhtml" />
+                    <h:commandLink value="Template" action="/template/content.xhtml" />
+                    <h:commandLink value="Bookmarkable" action="/bookmarkable/from.xhtml" />
+                    <h:commandLink value="Composite Component" action="/composite/composite.xhtml" />
+                    <h:commandLink value="Custom Component" action="/custom/custom.xhtml" />
+                    <h:commandLink value="Bean Validation" action="/validation/validation.xhtml" />
+                    <h:commandLink value="リソース" action="/versioning/versioning.xhtml" />
+                    <h:commandLink value="PhaseListener ※faces-config.xmlで一部コメントアウト解除" action="/phase/phaseCheck.xhtml" />
+                    <h:commandLink value="PrimeFaces Basic" action="/primefaces/basic.xhtml" />
+                    <h:commandLink value="PrimeFaces Basic Datatable" action="/primefaces/datatable.xhtml" />
+                    <h:commandLink value="PrimeFaces Modern" action="/primefaces/modern.xhtml" />
+                    <h:commandLink value="PrimeFaces Dialog" action="/primefaces/dialog/callDialog.xhtml" />
+                    <h:commandLink value="画面遷移でパラメータの受け渡し" action="/argument/from.xhtml" />
+                    <h:commandLink value="CSRF※" action="/security/register.xhtml" />
+                    <h:commandLink value="OmniFacesでFacesクラス利用" action="/omnifaces/omnifaces.xhtml" />
+                    <h:commandLink value="コードから生成" action="/dynamic/dynamic.xhtml" />
+                    <h:commandLink value="ui:debug利用でComponent Treeの確認" action="/componenttree/comppnenttree.xhtml" />
+                </h:panelGrid>
+                ※画面からは正常実行。URL直接入力で右のようにした場合、ProtectedViewExceptionとなるはず。http://localhost:8080/JavaDayTokyo2015JSF/faces/security/result.xhtml?user=hoge
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

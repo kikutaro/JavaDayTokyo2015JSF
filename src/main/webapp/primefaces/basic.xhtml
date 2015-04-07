@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="common.css" />
+        <h:form prependId="true" styleClass="common_font">
+            <p:sticky target="tlb" />
+            <p:toolbar id="tlb">
+                <f:facet name="right">
+                    <p:themeSwitcher>
+                        <f:selectItems value="[afterdark]" />
+                    </p:themeSwitcher>
+                </f:facet>
+                
+            </p:toolbar>
+            
+            <p:megaMenu orientation="horizontal">
+                <p:submenu label="ファイル">
+                    <p:column>
+                        <p:submenu label="保存">
+                            <p:menuitem value="新規保存" />
+                            <p:menuitem value="上書き保存" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="編集"/>
+                <p:submenu label="表示" />
+            </p:megaMenu>
+            
+            <p:messages />
+            
+            <p:panel header="Java Day Tokyo 2015">
+                <p:inputText required="true" value="#{primeFacesBean.input}" />
+                <p:commandButton value="ボタン" icon="ui-icon-star" 
+                                 update="@form"
+                                 actionListener="#{primeFacesBean.submit()}" />
+                
+                <p:separator />
+                
+                <p:inputTextarea />
+                
+                <p:separator />
+                
+                <p:tree var="node" value="#{primeFacesBean.root}"
+                    selection="#{primeFacesBean.selected}" selectionMode="single">
+                    <p:treeNode>
+                        <h:outputText value="#{node}" />
+                    </p:treeNode>
+                </p:tree>
+                
+                <p:separator />
+                
+                <p:password feedback="true" promptLabel="パスワードを入力して下さい"
+                            weakLabel="弱い" goodLabel="まあまあ" strongLabel="強い"/>
+                
+                <p:separator />
+                
+                <p:selectOneMenu value="#{primeFacesBean.selectedNeko}" var="n" style="width: 250px;">
+                    <f:selectItem itemLabel="選択して下さい" itemValue="" />
+                    <f:selectItems value="#{primeFacesBean.items}"
+                                   var="neko" itemValue="#{neko}" />
+                    <p:column>
+                        <h:outputText value="#{n.feeling}" />
+                    </p:column>
+                    <p:column>
+                        <p:graphicImage width="100" value="resources/image/#{n.img}" />
+                    </p:column>
+                </p:selectOneMenu>
+            </p:panel>
+
+            <p:tabView>
+                <p:tab title="タブ1" />
+                <p:tab title="タブ2" />
+                <p:tab title="タブ3" />
+            </p:tabView>
+            
+        </h:form>
+    </h:body>
+</html>
+

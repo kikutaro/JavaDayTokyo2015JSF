@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="common.css" />
+        <h:form id="frm" styleClass="common_font">
+            <p:commandButton value="ダイアログコンポ利用" onstart="PF('dlg').show()" />
+            
+            <p:commandButton value="ダイアログフレームワーク利用" actionListener="#{callDialogBean.showDialog()}">
+                <p:ajax event="dialogReturn" listener="#{callDialogBean.returnDialog}" update=":frm:ret"/>
+            </p:commandButton>
+            <h:outputText id="ret" value="#{callDialogBean.inputDialogResult}" />
+            
+            <p:confirmDialog message="ConfirmDialogコンポを利用しています"
+                header="ConfirmDialogコンポ" severity="info" widgetVar="dlg">
+                <p:commandButton value="はい" oncomplete="PF('dlg').hide()" />
+                <p:commandButton value="いいえ" oncomplete="PF('dlg').hide()" />
+            </p:confirmDialog>
+        </h:form>
+    </h:body>
+</html>
+
