@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>ViewScope</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton value="カウントアップ" actionListener="#{viewScopeBean.countup()}" />
+            <h:outputText value="#{viewScopeBean.count}" />
+        </h:form>
+    </h:body>
+</html>
+
